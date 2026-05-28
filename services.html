@@ -1,0 +1,1736 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Anand Kumar Awasthi & Associates</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+  :root {
+    --navy: #0F172A;
+    --navy-light: #1E293B;
+    --navy-mid: #334155;
+    --orange: #C9A227;
+    --orange-light: #D4AF37;
+    --orange-pale: #FEF9E7;
+    --orange-mid: #F5E095;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --cream: #F8FAFC;
+    --text-dark: #111827;
+    --text-mid: #475569;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+    --shadow-sm: 0 2px 12px rgba(15,23,42,0.08);
+    --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
+    --shadow-lg: 0 20px 60px rgba(15,23,42,0.18);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+  }
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .nav-logo-text strong {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+  .nav-logo-text span {
+    font-size: 10px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-mid);
+    transition: color 0.2s;
+    letter-spacing: 0.2px;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+  .nav-cta {
+    background: var(--navy);
+    color: white !important;
+    padding: 9px 22px;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    padding: 80px 48px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* ─── HEADER BG IMAGE ─── */
+  .page-hero.header-bg-service {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.72) 0%, rgba(30, 63, 114, 0.72) 100%), url('./images/header-bg.png') center/cover no-repeat;
+    background-attachment: fixed;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,101,10,0.2);
+    border: 1px solid rgba(232,101,10,0.4);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #FFB47A;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .page-hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    color: white;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto 20px;
+  }
+  .page-hero h1 em { color: var(--orange-light); font-style: italic; }
+  .page-hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ─── MAIN ─── */
+  main { padding: 72px 48px; max-width: 1240px; margin: 0 auto; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--orange);
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--text-mid);
+    font-size: 15.5px;
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 56px;
+  }
+
+  /* ─── SERVICE CARDS GRID ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: fadeUp 0.5s ease both;
+  }
+  .service-card:nth-child(1) { animation-delay: 0.05s; }
+  .service-card:nth-child(2) { animation-delay: 0.10s; }
+  .service-card:nth-child(3) { animation-delay: 0.15s; }
+  .service-card:nth-child(4) { animation-delay: 0.20s; }
+  .service-card:nth-child(5) { animation-delay: 0.25s; }
+  .service-card:nth-child(6) { animation-delay: 0.30s; }
+  .service-card:nth-child(7) { animation-delay: 0.35s; }
+  .service-card:nth-child(8) { animation-delay: 0.40s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover {
+    border-color: rgba(232,101,10,0.3);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--orange-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .card-icon { background: linear-gradient(135deg, var(--orange), var(--orange-light)); }
+  .service-card:hover .card-icon .icon-emoji { filter: brightness(10); }
+
+  .card-number {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--border);
+    letter-spacing: 1px;
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .service-card p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .card-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    background: var(--orange-pale);
+    border-radius: 6px;
+    padding: 3px 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .btn-info {
+    flex: 1;
+    padding: 10px 0;
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .btn-info:hover {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+  .btn-book {
+    flex: 1;
+    padding: 10px 0;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 4px 14px rgba(232,101,10,0.3);
+  }
+  .btn-book:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232,101,10,0.4);
+  }
+
+  /* ─── POPUP OVERLAY ─── */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,32,68,0.55);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ─── INFO MODAL ─── */
+  .info-modal {
+    background: white;
+    border-radius: 20px;
+    max-width: 620px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(15,32,68,0.25);
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+    opacity: 0;
+  }
+  .overlay.active .info-modal,
+  .overlay.active .booking-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    padding: 32px 36px 28px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+  }
+  .modal-header .modal-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(232,101,10,0.2);
+    border: 1.5px solid rgba(232,101,10,0.4);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .modal-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .modal-header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.2); }
+
+  .modal-body {
+    padding: 32px 36px 36px;
+  }
+
+  .info-section {
+    margin-bottom: 28px;
+  }
+  .info-section h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-section h4::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .info-list li {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .info-list li::before {
+    content: '✓';
+    width: 20px;
+    height: 20px;
+    background: var(--orange-pale);
+    color: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .info-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .meta-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .meta-card .meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+  .meta-card .meta-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .meta-card .meta-value.orange { color: var(--orange); }
+
+  .modal-book-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px 20px rgba(232,101,10,0.35);
+    letter-spacing: 0.3px;
+  }
+  .modal-book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(232,101,10,0.45);
+  }
+
+  /* ─── BOOKING MODAL ─── */
+  .booking-modal {
+    background: white;
+    border-radius: 20px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(15,32,68,0.25);
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+    opacity: 0;
+  }
+
+  .booking-header {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    padding: 28px 32px 24px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+  }
+  .booking-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .booking-header p { color: rgba(255,255,255,0.8); font-size: 13px; }
+  .booking-header .modal-close { background: rgba(255,255,255,0.2); }
+
+  .booking-body { padding: 28px 32px 32px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .form-group label span { color: var(--orange); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--off-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(232,101,10,0.1);
+    background: white;
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .time-slot {
+    padding: 8px 6px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--off-white);
+  }
+  .time-slot:hover, .time-slot.selected {
+    border-color: var(--orange);
+    background: var(--orange-pale);
+    color: var(--orange);
+  }
+
+  .mode-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .mode-btn {
+    padding: 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--off-white);
+  }
+  .mode-btn.selected {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  /* ─── SUCCESS STATE ─── */
+  .success-state {
+    text-align: center;
+    padding: 48px 32px;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 20px;
+    animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+  .success-state h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .success-state p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  /* ─── TABS SECTION ─── */
+  .tabs-section {
+    margin-top: 80px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--off-white);
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 18px 24px;
+    background: none;
+    border: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .tab-btn.active {
+    color: var(--orange);
+    background: white;
+  }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--orange);
+    border-radius: 3px 3px 0 0;
+  }
+  .tab-content { padding: 40px; display: none; }
+  .tab-content.active { display: block; }
+
+  .tab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .tab-text h3 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .tab-text p {
+    color: var(--text-mid);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .tab-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tab-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+  .check-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tab-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .visual-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .visual-card .vc-icon {
+    font-size: 20px;
+  }
+  .visual-card .vc-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2px;
+  }
+  .visual-card .vc-text span {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    margin-top: 80px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 20px;
+    padding: 56px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '⚖';
+    position: absolute;
+    right: 120px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    opacity: 0.04;
+    line-height: 1;
+  }
+  .cta-text h2 {
+    font-family: 'Lora', serif;
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .cta-text p { color: rgba(255,255,255,0.65); font-size: 14.5px; line-height: 1.6; }
+  .cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+  .cta-primary {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border: none; border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 700;
+    color: white; cursor: pointer;
+    box-shadow: 0 6px 20px rgba(232,101,10,0.4);
+    transition: all 0.2s;
+  }
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,101,10,0.5); }
+  .cta-secondary {
+    padding: 14px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: white; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cta-secondary:hover { background: rgba(255,255,255,0.14); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: white;
+    padding: 60px 48px 28px;
+    margin-top: 80px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 48px;
+    max-width: 1240px;
+    margin: 0 auto 48px;
+  }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    margin: 16px 0 20px;
+    max-width: 280px;
+  }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer;
+    transition: background 0.2s;
+    color: white; text-decoration: none;
+  }
+  .social-btn:hover { background: var(--orange); border-color: var(--orange); }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--orange-light); }
+
+  .footer-contact-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .fci-icon {
+    width: 30px; height: 30px;
+    background: rgba(232,101,10,0.15);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .fci-text {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-bottom p { font-size: 12.5px; color: rgba(255,255,255,0.4); }
+  .footer-badge {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-badge span { color: var(--orange); }
+
+  /* ─── CONTACT FABs ─── */
+  .contact-fab-group {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+  }
+
+  .whatsapp-fab,
+  .call-fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .whatsapp-fab {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    animation: waPulse 2.5s infinite;
+  }
+
+  .whatsapp-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+  }
+
+  .call-fab {
+    background: #0078D4;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 120, 212, 0.45);
+    animation: callPulse 2.5s infinite 0.3s;
+  }
+
+  .call-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 120, 212, 0.6);
+  }
+
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45); }
+    50% { box-shadow: 0 8px 36px rgba(37, 211, 102, 0.7); }
+  }
+
+  @keyframes callPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45); }
+    50% { box-shadow: 0 8px 36px rgba(201, 162, 39, 0.7); }
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(232,101,10,0.3); border-radius: 3px; }
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">&#9878;</div>
+    <div class="nav-logo-text">
+      <strong>ANAND KUMAR AWASTHI</strong>
+      <span>& Associates · Advocates & Tax Consultants</span>
+    </div>
+  </a>
+  <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Open navigation menu">
+  <label class="nav-toggle" for="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ PAGE HERO ══════ -->
+<div class="page-hero header-bg-service">
+  <div class="hero-badge">⚡ Professional Legal & Financial Services</div>
+  <h1>Comprehensive Legal & <em>Financial Architectures</em></h1>
+  <p>From GST registration to business compliance — we handle every dimension of your compliance journey with precision, speed, and absolute confidentiality.</p>
+</div>
+
+<!-- ══════ MAIN ══════ -->
+<main>
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Our Core Services</h2>
+  <p class="section-sub">Click <strong>Get Started</strong> for a detailed overview, or <strong>Book Appointment</strong> to schedule a consultation with our expert team.</p>
+
+  <!-- SERVICE CARDS -->
+  <div class="services-grid">
+
+    <!-- Card 1 -->
+    <div class="service-card">
+      <span class="card-number">01</span>
+      <div class="card-icon"><span class="icon-emoji">📋</span></div>
+      <h3>GST Services</h3>
+      <p>Strategic GST structuring to optimize your input tax credits and maintain full compliance with GSTN regulations.</p>
+      <div class="card-tags">
+        <span class="card-tag">GSTIN</span>
+        <span class="card-tag">ITC Optimization</span>
+        <span class="card-tag">Returns</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('gst')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="service-card">
+      <span class="card-number">02</span>
+      <div class="card-icon"><span class="icon-emoji">💼</span></div>
+      <h3>Income Tax Return (ITR) Filing</h3>
+      <p>Specialized handling for salaried professionals, freelancers, HUFs, and complex multi-source business portfolios.</p>
+      <div class="card-tags">
+        <span class="card-tag">ITR 1–7</span>
+        <span class="card-tag">Tax Saving</span>
+        <span class="card-tag">Refunds</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('itr')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card">
+      <span class="card-number">03</span>
+      <div class="card-icon"><span class="icon-emoji">🏛️</span></div>
+      <h3>Company & Corporate Registration</h3>
+      <p>End-to-end Private Limited, LLP, and OPC setup with MCA tracking, DIN allotment, and digital signature procurement.</p>
+      <div class="card-tags">
+        <span class="card-tag">Pvt Ltd</span>
+        <span class="card-tag">LLP</span>
+        <span class="card-tag">OPC</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('company')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="service-card">
+      <span class="card-number">04</span>
+      <div class="card-icon"><span class="icon-emoji">🏭</span></div>
+      <h3>MSME / Udyam Registration</h3>
+      <p>Unlock government schemes, subsidies, priority lending, and financial benefits by getting your Udyam certificate fast.</p>
+      <div class="card-tags">
+        <span class="card-tag">Udyam</span>
+        <span class="card-tag">Subsidies</span>
+        <span class="card-tag">MSME</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('msme')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="service-card">
+      <span class="card-number">05</span>
+      <div class="card-icon"><span class="icon-emoji">🔍</span></div>
+      <h3>Audit & Corporate Compliance</h3>
+      <p>Thorough internal reviews, statutory tax audits, and annual compliance management to keep your business audit-ready.</p>
+      <div class="card-tags">
+        <span class="card-tag">Tax Audit</span>
+        <span class="card-tag">Internal Audit</span>
+        <span class="card-tag">Compliance</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('audit')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="service-card">
+      <span class="card-number">06</span>
+      <div class="card-icon"><span class="icon-emoji">🚀</span></div>
+      <h3>Startup Advisory & Brand Setup</h3>
+      <p>Fast-track legal documentation, trademark registrations, and complete brand setup for India's next generation of startups.</p>
+      <div class="card-tags">
+        <span class="card-tag">Trademark</span>
+        <span class="card-tag">IP Rights</span>
+        <span class="card-tag">Startup India</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('startup')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="service-card">
+      <span class="card-number">07</span>
+      <div class="card-icon"><span class="icon-emoji">📁</span></div>
+      <h3>ROC Filing & Secretarial Services</h3>
+      <p>Seamless annual filing management, board meeting minutes, statutory registers, and ROC compliance management.</p>
+      <div class="card-tags">
+        <span class="card-tag">ROC</span>
+        <span class="card-tag">MCA Portal</span>
+        <span class="card-tag">Annual Filing</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-info" onclick="openInfo('roc')">📖 Get Started</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
+      </div>
+    </div>
+
+    </div>
+
+  <!-- TABS SECTION -->
+  <div class="tabs-section">
+    <div class="tabs-header">
+      <button class="tab-btn active" onclick="switchTab('startup-tab', this)">🚀 The Startup Launchpad</button>
+      <button class="tab-btn" onclick="switchTab('tax-tab', this)">🔒 Secure Tax Vault</button>
+    </div>
+    <div id="startup-tab" class="tab-content active">
+      <div class="tab-grid">
+        <div class="tab-text">
+          <h3>Launch Your Dream Business in Days</h3>
+          <p>Our Startup Launchpad is a complete package for entrepreneurs who want to move fast without missing a single legal or regulatory requirement.</p>
+          <ul class="tab-checklist">
+            <li><span class="check-dot">✓</span> Company / LLP / OPC Registration with MCA</li>
+            <li><span class="check-dot">✓</span> Trademark Search & Application Filing</li>
+            <li><span class="check-dot">✓</span> GST Registration within 3–5 days</li>
+            <li><span class="check-dot">✓</span> MSME / Udyam Certificate Procurement</li>
+            <li><span class="check-dot">✓</span> Startup India DPIIT Recognition</li>
+            <li><span class="check-dot">✓</span> GST At Tribunal</li>
+            <li><span class="check-dot">✓</span> Founders' Agreement & MoA / AoA Drafting</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-card"><span class="vc-icon">📋</span><div class="vc-text"><strong>Legal Incorporation</strong><span>MCA + ROC registered entity</span></div></div>
+          <div class="visual-card"><span class="vc-icon">™️</span><div class="vc-text"><strong>Trademark Registration</strong><span>IP protection in 45 classes</span></div></div>
+          <div class="visual-card"><span class="vc-icon">🏛️</span><div class="vc-text"><strong>Government Schemes</strong><span>DPIIT, SIDBI, CGTMSE access</span></div></div>
+          <div class="visual-card"><span class="vc-icon">📊</span><div class="vc-text"><strong>Financial Structuring</strong><span>Equity & profit distribution planning</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div id="tax-tab" class="tab-content">
+      <div class="tab-grid">
+        <div class="tab-text">
+          <h3>Your Tax Data, Secured & Optimized</h3>
+          <p>Our Secure Tax Vault ensures your sensitive financial information is handled with bank-grade encryption while maximizing your legally available deductions.</p>
+          <ul class="tab-checklist">
+            <li><span class="check-dot">✓</span> Encrypted Client Document Portal</li>
+            <li><span class="check-dot">✓</span> Advanced Tax Saving Strategy Sessions</li>
+            <li><span class="check-dot">✓</span> Proactive Tax Notices Management</li>
+            <li><span class="check-dot">✓</span> Section 80C / 80D / HRA Optimization</li>
+            <li><span class="check-dot">✓</span> Capital Gains Tax Planning</li>
+            <li><span class="check-dot">✓</span> E-filing with Digital Verification</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-card"><span class="vc-icon">🔐</span><div class="vc-text"><strong>Encrypted Storage</strong><span>256-bit client data protection</span></div></div>
+          <div class="visual-card"><span class="vc-icon">🛡️</span><div class="vc-text"><strong>Notice Shield</strong><span>IT department representation</span></div></div>
+          <div class="visual-card"><span class="vc-icon">💰</span><div class="vc-text"><strong>Maximum Refunds</strong><span>Expert deduction mapping</span></div></div>
+          <div class="visual-card"><span class="vc-icon">📈</span><div class="vc-text"><strong>Investment Planning</strong><span>Tax-efficient portfolio advice</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-text">
+      <h2>Not Sure Which Service You Need?</h2>
+      <p>Book a free 30-minute consultation call. Our senior advocate will assess your situation and recommend the right path forward.</p>
+    </div>
+    <div class="cta-actions">
+      <button class="cta-primary" onclick="openBooking('Free Consultation')">📅 Book Free Consultation</button>
+      <a href="https://wa.me/919999999999" class="cta-secondary" style="display:flex;align-items:center;gap:8px;text-decoration:none;">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</main>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:flex;align-items:center;gap:12px;margin-bottom:0;">
+        <div class="nav-logo-icon">⚖</div>
+        <div class="nav-logo-text">
+          <strong style="color:white;font-size:14px;">ANAND KUMAR AWASTHI</strong>
+          <span style="color:rgba(255,255,255,0.4);">& Associates</span>
+        </div>
+      </div>
+      <p>Senior Advocate & Tax Consultant with 16+ years of expertise in GST, Income Tax, and Corporate Law. Member of the Sales Tax Bar Association, Lucknow.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">tw</a>
+        <a class="social-btn" href="#">fb</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#">GST Filing</a></li>
+        <li><a href="#">ITR Filing</a></li>
+        <li><a href="#">Company Registration</a></li>
+        <li><a href="#">MSME / Udyam</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <div class="fci-icon">📍</div>
+        <div class="fci-text">Hazratganj, Lucknow, Uttar Pradesh — 226001</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="fci-icon">📞</div>
+        <div class="fci-text">+91 9415034775</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="fci-icon">✉️</div>
+        <div class="fci-text">gst751622@gmail.com</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="fci-icon">🕐</div>
+        <div class="fci-text">Mon–Sat: 10:00 AM – 12:00 PM & 6:00 PM – 8:00 PM</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Anand Kumar Awasthi & Associates. All rights reserved.</p>
+    <div class="footer-badge">Designed with <span>●</span> professionalism, integrity & trust</div>
+  </div>
+</footer>
+
+<!-- Contact FABs -->
+<div class="contact-fab-group">
+  <a href="tel:+919415034775" class="call-fab" title="Call Us">📞</a>
+  <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="whatsapp-fab" title="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+<!-- ══════ INFO MODAL OVERLAY ══════ -->
+<div class="overlay" id="info-overlay" onclick="closeOverlay('info-overlay')">
+  <div class="info-modal" onclick="event.stopPropagation()" id="info-modal-content">
+    <div class="modal-header">
+      <div class="modal-icon" id="modal-icon">📋</div>
+      <h2 id="modal-title">Service Details</h2>
+      <p id="modal-subtitle">Detailed overview of this service</p>
+      <button class="modal-close" onclick="closeOverlay('info-overlay')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-meta" id="modal-meta"></div>
+      <div class="info-section">
+        <h4>What's Included</h4>
+        <ul class="info-list" id="modal-includes"></ul>
+      </div>
+      <div class="info-section">
+        <h4>Documents Required</h4>
+        <ul class="info-list" id="modal-docs"></ul>
+      </div>
+      <div class="info-section">
+        <h4>Process Overview</h4>
+        <ul class="info-list" id="modal-process"></ul>
+      </div>
+      <button class="modal-book-btn" id="modal-book-cta"> Book Appointment for This Service</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+// ─── SERVICE DATA ───
+const serviceData = {
+  gst: {
+    icon: '📋',
+    title: 'GST Services',
+    subtitle: 'Complete GSTIN setup and monthly/quarterly return filing services',
+    meta: [
+      { label: 'Processing Time', value: '3–7 Working Days', orange: false },
+      { label: 'Starting Fee', value: '₹1,499 Onwards', orange: true },
+      { label: 'Mode', value: 'Online + Office', orange: false },
+      { label: 'Validity', value: 'Lifetime GSTIN', orange: false },
+    ],
+    includes: [
+      'GSTIN Registration Certificate',
+      'GST At Tribunal',
+      'GST ARN & TRN Number Procurement',
+      'Monthly / Quarterly GSTR-1 & GSTR-3B Filing',
+      'Annual GSTR-9 Return Filing',
+      'Input Tax Credit (ITC) Reconciliation',
+      'GST Notice Response & Representation',
+      'E-way Bill Setup & Assistance',
+    ],
+    docs: [
+      'PAN Card of Business / Proprietor',
+      'Aadhaar Card of Proprietor / Directors',
+      'Business Address Proof (Electricity bill / Rent agreement)',
+      'Bank Account Statement or Cancelled Cheque',
+      'Digital Photograph of Applicant',
+      'Certificate of Incorporation (for companies)',
+    ],
+    process: [
+      'Document collection via secure portal',
+      'Application drafting and verification by our team',
+      'Submission on GSTN portal with OTP verification',
+      'ARN generation and tracking',
+      'GSTIN certificate delivery within 3–7 days',
+    ],
+    bookService: 'GST Services',
+  },
+  itr: {
+    icon: '💼',
+    title: 'Income Tax Return (ITR) Filing',
+    subtitle: 'Expert ITR filing for individuals, businesses, and HUFs',
+    meta: [
+      { label: 'Filing Deadline', value: '31 July / 31 Oct', orange: false },
+      { label: 'Starting Fee', value: '₹499 Onwards', orange: true },
+      { label: 'ITR Forms', value: 'ITR 1 to ITR 7', orange: false },
+      { label: 'Processing', value: '1–3 Days', orange: false },
+    ],
+    includes: [
+      'ITR Form Selection & Computation',
+      'Incoem tax Response & Representation',
+      'Tax saving and planning',
+      'Income from All Sources (Salary, Business, Capital Gains)',
+      'Section 80C, 80D, 80G Deductions Optimization',
+      'HRA, LTA, and Allowance Exemptions',
+      'Maximum Refund Calculation',
+      'E-filing with Digital Verification',
+      'ITR-V Acknowledgement Delivery',
+    ],
+    docs: [
+      'PAN Card & Aadhaar Card',
+      'Form 16 (from employer) or Salary Slips',
+      'Bank Statements for all accounts',
+      'Investment Proofs (PPF, ELSS, LIC, etc.)',
+      'Home Loan Interest Certificate (if applicable)',
+      'Rental Income Receipts (if applicable)',
+      'Capital Gain Statements (if applicable)',
+    ],
+    process: [
+      'Share documents via our secure client portal',
+      'Expert reviews and computes taxable income',
+      'Draft ITR prepared and shared for approval',
+      'E-filing on IT portal with OTP',
+      'Acknowledgement (ITR-V) shared within 24 hours',
+    ],
+    bookService: 'Income Tax Return Filing',
+  },
+  company: {
+    icon: '🏛️',
+    title: 'Company & Corporate Registration',
+    subtitle: 'Complete entity incorporation with MCA and ROC compliance',
+    meta: [
+      { label: 'Processing Time', value: '7–15 Working Days', orange: false },
+      { label: 'Starting Fee', value: '₹6,999 Onwards', orange: true },
+      { label: 'Entity Types', value: 'Pvt Ltd, LLP, OPC', orange: false },
+      { label: 'Government Fee', value: 'Included', orange: false },
+    ],
+    includes: [
+      'DIN (Director Identification Number) Allotment',
+      'DSC (Digital Signature Certificate) Procurement',
+      'Name Approval & Reservation on MCA Portal',
+      'MOA & AOA Drafting and Filing',
+      'Certificate of Incorporation from ROC',
+      'PAN & TAN of Company',
+      'Bank Account Opening Assistance',
+    ],
+    docs: [
+      'PAN Card of all Directors / Partners',
+      'Aadhaar Card of all Directors',
+      'Address Proof (Passport / Voter ID / Driving Licence)',
+      'Residential Address Proof (Utility Bill)',
+      'Passport-size Photographs',
+      'Registered Office Address Proof + NOC from Owner',
+    ],
+    process: [
+      'Name availability check and reservation',
+      'DIN and DSC procurement for directors',
+      'MOA, AOA, and SPICe+ form drafting',
+      'Filing with MCA portal and fee payment',
+      'Certificate of Incorporation delivery',
+    ],
+    bookService: 'Company & Corporate Registration',
+  },
+  msme: {
+    icon: '🏭',
+    title: 'MSME / Udyam Registration',
+    subtitle: 'Government-recognized MSME certification for business benefits',
+    meta: [
+      { label: 'Processing Time', value: '1–3 Working Days', orange: false },
+      { label: 'Starting Fee', value: '₹499 Onwards', orange: true },
+      { label: 'Government Fee', value: 'Zero / Free', orange: false },
+      { label: 'Validity', value: 'Lifetime', orange: false },
+    ],
+    includes: [
+      'Udyam Registration Certificate',
+      'MSME Classification Advisory (Micro/Small/Medium)',
+      'Priority Lending & Collateral-Free Loan Guidance',
+      'Government Scheme Eligibility Assessment',
+      'CGTMSE Guarantee Scheme Assistance',
+      'GeM (Government e-Marketplace) Registration Help',
+    ],
+    docs: [
+      'Aadhaar Card of Proprietor / Director',
+      'PAN Card of Business Entity',
+      'Business Bank Account Details',
+      'NIC Code (Business Activity Code)',
+      'Investment in Plant & Machinery Details',
+      'Turnover Details of Previous Year',
+    ],
+    process: [
+      'Aadhaar-based OTP verification of proprietor',
+      'Business activity NIC code mapping',
+      'Self-declaration on Udyam portal',
+      'Certificate generation within 24–72 hours',
+      'Benefits activation and scheme guidance',
+    ],
+    bookService: 'MSME / Udyam Registration',
+  },
+  audit: {
+    icon: '🔍',
+    title: 'Audit & Corporate Compliance',
+    subtitle: 'Statutory and internal audit services with full compliance management',
+    meta: [
+      { label: 'Audit Types', value: 'Statutory + Internal', orange: false },
+      { label: 'Starting Fee', value: '₹9,999 Onwards', orange: true },
+      { label: 'Turnaround', value: '7–21 Days', orange: false },
+      { label: 'Report', value: 'Detailed + Digital', orange: false },
+    ],
+    includes: [
+      'Tax Audit u/s 44AB of Income Tax Act',
+      'Internal Financial Controls Review',
+      'Profit & Loss and Balance Sheet Verification',
+      'TDS / TCS Reconciliation',
+      'GST Annual Audit (GSTR-9C)',
+      'Statutory Audit for Companies',
+      'Detailed Audit Report with Findings',
+    ],
+    docs: [
+      'Books of Accounts (Tally / Excel / ERP)',
+      'Bank Statements for all accounts',
+      'GST Returns Filed (GSTR-1, 3B, 9)',
+      'TDS Returns Filed (26Q, 27Q)',
+      'Purchase & Sales Invoices',
+      'Fixed Asset Register',
+    ],
+    process: [
+      'Document collection and books scrutiny',
+      'Financial statement analysis',
+      'Internal control evaluation',
+      'Audit observation drafting',
+      'Final report and compliance recommendations',
+    ],
+    bookService: 'Audit & Corporate Compliance',
+  },
+  startup: {
+    icon: '🚀',
+    title: 'Startup Advisory & Brand Setup',
+    subtitle: 'End-to-end legal and brand foundation for your new venture',
+    meta: [
+      { label: 'Package Duration', value: '15–30 Days', orange: false },
+      { label: 'Starting Fee', value: '₹12,999 Onwards', orange: true },
+      { label: 'Recognition', value: 'DPIIT Eligible', orange: false },
+      { label: 'Support', value: '6-Month Ongoing', orange: false },
+    ],
+    includes: [
+      'Company / LLP / OPC Registration',
+      'Trademark Search & Class Selection',
+      'Trademark Application Filing & Tracking',
+      'GST & MSME Registration',
+      'DPIIT Startup India Recognition',
+      'Founders Agreement & Shareholder Agreement Drafting',
+      'Website Privacy Policy & Terms of Use',
+    ],
+    docs: [
+      'PAN & Aadhaar of all Founders',
+      'Business Idea / Pitch Deck / Product Description',
+      'Brand Name Preferences & Logo (if ready)',
+      'Office / Registered Address Proof',
+      'Shareholding Structure (% split among founders)',
+      'Business Bank Account Details',
+    ],
+    process: [
+      'Startup strategy and structure consultation',
+      'Company incorporation and compliance setup',
+      'Brand registration and IP protection',
+      'Government scheme activation',
+      'Ongoing advisory and compliance monitoring',
+    ],
+    bookService: 'Startup Advisory & Brand Setup',
+  },
+  roc: {
+    icon: '📁',
+    title: 'ROC Filing & Secretarial Services',
+    subtitle: 'Annual compliance management for registered companies and LLPs',
+    meta: [
+      { label: 'Due Date', value: 'Oct 30 / Nov 29', orange: false },
+      { label: 'Starting Fee', value: '₹4,999 Onwards', orange: true },
+      { label: 'Filing Mode', value: 'MCA V3 Portal', orange: false },
+      { label: 'Penalty Waiver', value: 'Timely Filing', orange: false },
+    ],
+    includes: [
+      'Annual Return Filing (MGT-7 / MGT-7A)',
+      'Financial Statements Filing (AOC-4)',
+      'Board Meeting & AGM Minutes Drafting',
+      'Statutory Register Maintenance',
+      'Director KYC (DIR-3 KYC) Annual Filing',
+      'Charge Creation / Modification Filing',
+      'Event-Based Compliance (Director changes, etc.)',
+    ],
+    docs: [
+      'Certificate of Incorporation',
+      'PAN & Aadhaar of all Directors',
+      'Audited Financial Statements',
+      'Previous Year Annual Return Copy',
+      'Board Resolution Copies',
+      'Shareholder Details and Register',
+    ],
+    process: [
+      'Document verification and checklist sharing',
+      'Financial statement preparation coordination',
+      'Form drafting on MCA V3 portal',
+      'Director DSC-based signing and submission',
+      'SRN and filing receipt delivery',
+    ],
+    bookService: 'ROC Filing & Secretarial Services',
+  },
+};
+
+// ─── OPEN INFO MODAL ───
+function openInfo(key) {
+  const d = serviceData[key];
+  if (!d) return;
+  document.getElementById('modal-icon').textContent = d.icon;
+  document.getElementById('modal-title').textContent = d.title;
+  document.getElementById('modal-subtitle').textContent = d.subtitle;
+
+  // Meta
+  document.getElementById('modal-meta').innerHTML = d.meta.map(m =>
+    `<div class="meta-card"><div class="meta-label">${m.label}</div><div class="meta-value ${m.orange ? 'orange' : ''}">${m.value}</div></div>`
+  ).join('');
+
+  // Lists
+  document.getElementById('modal-includes').innerHTML = d.includes.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('modal-docs').innerHTML = d.docs.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('modal-process').innerHTML = d.process.map(i => `<li>${i}</li>`).join('');
+
+  // Book CTA
+  document.getElementById('modal-book-cta').onclick = () => {
+    window.open('https://wa.me/919415034775?utm_source=chatgpt.com', '_blank');
+  };
+
+  showOverlay('info-overlay');
+}
+
+// ─── OPEN BOOKING MODAL ───
+function openBooking(serviceName) {
+  document.getElementById('booking-service-name').textContent = 'Service: ' + (serviceName || 'General Consultation');
+
+  // Pre-select service
+  const sel = document.getElementById('book-service');
+  for (let opt of sel.options) {
+    if (opt.value === serviceName || opt.text === serviceName) {
+      sel.value = opt.value;
+      break;
+    }
+  }
+
+  // Reset form
+  document.getElementById('booking-form-step').style.display = 'block';
+  document.getElementById('booking-success-step').style.display = 'none';
+
+  showOverlay('booking-overlay');
+}
+
+function showOverlay(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOverlay(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ─── TIME SLOT ───
+function selectSlot(el) {
+  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ─── MODE TOGGLE ───
+function selectMode(el) {
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ─── SUBMIT BOOKING ───
+function submitBooking() {
+  const name = document.getElementById('book-name').value.trim();
+  const phone = document.getElementById('book-phone').value.trim();
+
+  if (!name || !phone) {
+    alert('Please fill in your Name and Phone Number to continue.');
+    return;
+  }
+
+  document.getElementById('booking-form-step').style.display = 'none';
+  document.getElementById('booking-success-step').style.display = 'block';
+}
+
+// ─── TABS ───
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ─── SET MIN DATE TO TODAY ───
+const dateInput = document.getElementById('book-date');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+}
+
+// ─── ESC KEY CLOSE ───
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeOverlay('info-overlay');
+    closeOverlay('booking-overlay');
+  }
+});
+</script>
+</body>
+</html>

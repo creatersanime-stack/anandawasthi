@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Anand Kumar Awasthi & Associates</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F172A;
+    --navy-light: #1E293B;
+    --navy-mid: #334155;
+    --orange: #C9A227;
+    --orange-light: #D4AF37;
+    --orange-pale: #FEF9E7;
+    --orange-mid: #F5E095;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --cream: #F8FAFC;
+    --text-dark: #111827;
+    --text-mid: #475569;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+    --shadow-sm: 0 2px 12px rgba(15,23,42,0.08);
+    --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
+    --shadow-lg: 0 20px 60px rgba(15,23,42,0.18);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px; display: flex; align-items: center;
+    justify-content: space-between; height: 72px;
+    box-shadow: var(--shadow-sm);
+    animation: slideDown 0.6s ease;
+  }
+  @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border-radius: 11px; display: flex; align-items: center;
+    justify-content: center; font-size: 20px; color: white;
+    box-shadow: 0 4px 12px rgba(232,101,10,0.3);
+  }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-logo-text strong { font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.3px; }
+  .nav-logo-text span { font-size: 10px; color: var(--text-light); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+  .nav-cta {
+    background: var(--navy); color: white !important;
+    padding: 9px 22px; border-radius: 8px; font-weight: 600 !important;
+    transition: all 0.2s !important; box-shadow: var(--shadow-sm);
+  }
+  .nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+
+  /* CONTACT HERO */
+  .contact-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 55%, #1e3f72 100%);
+    padding: 100px 48px 80px; text-align: center; color: white;
+    position: relative; overflow: hidden;
+  }
+  .contact-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(232,101,10,0.15) 0%, transparent 70%);
+  }
+  .contact-hero h1 { font-family: 'Lora', serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 700; margin-bottom: 16px; animation: fadeUp 0.6s ease both; position: relative; z-index: 2; }
+  .contact-hero h1 em { color: var(--orange-light); font-style: italic; }
+  .contact-hero p { font-size: 16.5px; color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto; line-height: 1.6; animation: fadeUp 0.6s 0.15s ease both; position: relative; z-index: 2; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* CONTACT SECTION */
+  .contact-section { padding: 80px 48px; background: var(--cream); position: relative; z-index: 10; margin-top: -30px; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+  
+  /* INFO CARDS */
+  .contact-info { display: flex; flex-direction: column; gap: 24px; animation: fadeUp 0.6s 0.2s ease both; }
+  .info-card {
+    background: white; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; display: flex; align-items: flex-start; gap: 20px;
+    box-shadow: var(--shadow-sm); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(232,101,10,0.2); }
+  .info-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--orange-pale); color: var(--orange);
+    display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0;
+    transition: background 0.3s, color 0.3s;
+  }
+  .info-card:hover .info-icon { background: linear-gradient(135deg, var(--orange), var(--orange-light)); color: white; }
+  .info-details h3 { font-size: 18px; color: var(--navy); margin-bottom: 8px; font-family: 'Lora', serif; font-weight: 600; }
+  .info-details p, .info-details a { font-size: 14.5px; color: var(--text-mid); line-height: 1.6; text-decoration: none; transition: color 0.2s; display: block; }
+  .info-details a:hover { color: var(--orange); }
+  
+  /* CONTACT FORM / BUTTON WRAP */
+  .contact-form-wrap {
+    background: white; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 48px; box-shadow: var(--shadow-md); animation: fadeUp 0.6s 0.3s ease both;
+    display: flex; flex-direction: column; justify-content: center; text-align: center;
+  }
+  .contact-form-wrap h2 { font-family: 'Lora', serif; font-size: 28px; color: var(--navy); margin-bottom: 12px; font-weight: 600; }
+  .contact-form-wrap p { font-size: 14.5px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.6; }
+  
+  .btn-submit {
+    margin-top: 12px; width: 100%; padding: 18px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border: none; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; font-weight: 700; color: white; cursor: pointer;
+    box-shadow: 0 6px 24px rgba(232,101,10,0.4); transition: all 0.25s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,101,10,0.5); }
+  
+  /* FOOTER */
+  footer { background: var(--navy); color: white; padding: 64px 48px 28px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; max-width: 1240px; margin: 0 auto 48px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; margin: 18px 0 22px; max-width: 280px; }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; cursor: pointer; transition: all 0.2s; color: white; text-decoration: none; font-weight: 700;
+  }
+  .social-btn:hover { background: var(--orange); border-color: var(--orange); }
+  .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 13.5px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--orange-light); }
+  .fci { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .fci-icon { width: 30px; height: 30px; background: rgba(232,101,10,0.15); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .fci-text { font-size: 12.5px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 12.5px; color: rgba(255,255,255,0.35); }
+  .footer-badge { font-size: 11px; color: rgba(255,255,255,0.3); }
+  .footer-badge span { color: var(--orange); }
+
+  /* Contact FABs */
+  .contact-fab-group {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+  }
+
+  .wa-fab,
+  .call-fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .wa-fab {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    animation: waPulse 2.5s infinite;
+  }
+
+  .wa-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+  }
+
+  .call-fab {
+    background: #0078D4;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 120, 212, 0.45);
+    animation: callPulse 2.5s infinite 0.3s;
+  }
+
+  .call-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 120, 212, 0.6);
+  }
+
+  @keyframes waPulse { 0%,100% { box-shadow: 0 8px 24px rgba(37,211,102,0.45); } 50% { box-shadow: 0 8px 36px rgba(37,211,102,0.7); } }
+  @keyframes callPulse { 0%, 100% { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45); } 50% { box-shadow: 0 8px 36px rgba(201, 162, 39, 0.7); } }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(232,101,10,0.3); border-radius: 3px; }
+
+  @media (max-width: 992px) {
+    .contact-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">⚖</div>
+    <div class="nav-logo-text">
+      <strong>ANAND KUMAR AWASTHI</strong>
+      <span>& Associates · Advocates & Tax Consultants</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<section class="contact-hero">
+  <h1>Get in <em>Touch</em></h1>
+  <p>Whether you need help with GST, ITR, Company Registration or Legal Advice, our experts are here to assist you.</p>
+</section>
+
+<section class="contact-section">
+  <div class="contact-inner">
+    
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div class="info-details">
+          <h3>Office Address</h3>
+          <p>SS-1/183-184,Sector-A,Sitapur road Yojna, <br>Near Ram Ram Bank Chauraha, Lucknow, Uttar Pradesh — 226021</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+        <div class="info-details">
+          <h3>Phone & WhatsApp</h3>
+          <a href="tel:+919415034775">+91 9415034775</a>
+          <p style="font-size: 13px; margin-top: 4px;">Mon - Sat, 10:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">✉️</div>
+        <div class="info-details">
+          <h3>Email Address</h3>
+          <a href="mailto:gst751622@gmail.com">gst751622@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h2>Email Us Directly</h2>
+      <p>Click the button below to send us an email. Our team will get back to you within 24 hours to schedule your consultation.</p>
+      
+      <a href="mailto:gst751622@gmail.com?subject=Consultation%20Request&body=I%20want%20consultance." class="btn-submit" style="text-decoration: none; max-width: 300px; margin: 20px auto 0;">
+        Email Us Now <span>✉️</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding: 40px 48px; background: white; text-align: center;">
+    <h2 style="font-family: 'Lora', serif; color: #0F172A; margin-bottom: 20px;">Visit Our Office</h2>
+    <a href="https://maps.app.goo.gl/4W3wxWpEZsx9XbrGA" target="_blank" style="display: inline-block; padding: 15px 30px; background: #C9A227; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">View Location on Map</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <div class="nav-logo-icon">⚖</div>
+        <div class="nav-logo-text">
+          <strong style="color:white;font-size:14px;">ANAND KUMAR AWASTHI</strong>
+          <span style="color:rgba(255,255,255,0.4);">& Associates</span>
+        </div>
+      </div>
+      <p>Senior Advocate & Tax Consultant with 16+ years of expertise in GST, Income Tax, and Corporate Law. Member of the Sales Tax Bar Association, Lucknow.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="services.html">GST Filing</a></li>
+        <li><a href="services.html">ITR Filing</a></li>
+        <li><a href="services.html">Company Registration</a></li>
+        <li><a href="services.html">MSME / Udyam</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="fci"><div class="fci-icon">📍</div><div class="fci-text">SS-1/183-184,Sector-A,Sitapur road Yojna,Near Ram Ram Bank Chauraha, Lucknow, Uttar Pradesh — 226021</div></div>
+      <div class="fci"><div class="fci-icon">📞</div><div class="fci-text">+91 9415034775</div></div>
+      <div class="fci"><div class="fci-icon">✉️</div><div class="fci-text">gst751622@gmail.com</div></div>
+      <div class="fci"><div class="fci-icon">🕐</div><div class="fci-text">Mon–Sat: 10:00 AM – 12:00 PM & 6:00 PM – 8:00 PM</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Anand Kumar Awasthi & Associates. All rights reserved.</p>
+    <div class="footer-badge">Designed with <span>●</span> professionalism, integrity & trust</div>
+  </div>
+</footer>
+
+<div class="contact-fab-group">
+  <a href="tel:+919415034775" class="call-fab" title="Call Us">📞</a>
+  <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="wa-fab" title="WhatsApp Us"><i class="bi bi-whatsapp"></i></a>
+</div>
+</body>
+</html>
