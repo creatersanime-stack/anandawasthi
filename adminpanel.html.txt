@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Anand Kumar Awasthi & Associates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --navy: #0F172A;
+      --navy-light: #1E293B;
+      --orange: #C9A227;
+      --orange-light: #D4AF37;
+      --off-white: #F8FAFC;
+      --text-dark: #111827;
+      --text-mid: #475569;
+      --border: #E2E8F0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 280px;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .sidebar-header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+    }
+
+    .nav-logo-text strong {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      display: block;
+    }
+
+    .nav-logo-text span {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-menu {
+      padding: 24px 0;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .menu-item {
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .menu-item:hover, .menu-item.active {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      border-left: 4px solid var(--orange);
+    }
+
+    .menu-item i {
+      font-size: 18px;
+      color: var(--orange-light);
+    }
+
+    /* Main Content Area */
+    .main-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .topbar {
+      height: 72px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      flex-shrink: 0;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      width: 300px;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      margin-left: 8px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .admin-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .admin-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .dashboard-content {
+      padding: 32px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .stat-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(201, 162, 39, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--orange);
+    }
+
+    .stat-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .stat-info p {
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    /* Table Styles */
+    .table-container {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      overflow: hidden;
+    }
+
+    .table-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .table-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .btn-add {
+      background: var(--navy);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+
+    .btn-add:hover {
+      background: var(--navy-light);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 16px 24px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--off-white);
+      color: var(--text-mid);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-pending { background: #FEF3C7; color: #D97706; }
+    .status-active { background: #D1FAE5; color: #059669; }
+    .status-closed { background: #F3F4F6; color: #4B5563; }
+
+    .action-icons {
+      display: flex;
+      gap: 12px;
+      color: var(--text-mid);
+      font-size: 16px;
+    }
+
+    .action-icons i {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icons i:hover { color: var(--orange); }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="nav-logo-icon">⚖️</div>
+      <div class="nav-logo-text">
+        <strong>ADMIN PANEL</strong>
+        <span>Awasthi & Associates</span>
+      </div>
+    </div>
+    
+    <nav class="sidebar-menu">
+      <a href="#" class="menu-item active">
+        <i class="bi bi-grid-1x2-fill"></i> Dashboard
+      </a>
+      <a href="#" class="menu-item">
+        <i class="bi bi-envelope-paper-fill"></i> Inquiries & Leads
+      </a>
+      <a href="#" class="menu-item">
+        <i class="bi bi-people-fill"></i> Clients Directory
+      </a>
+      <a href="#" class="menu-item">
+        <i class="bi bi-briefcase-fill"></i> Manage Services
+      </a>
+      <a href="#" class="menu-item">
+        <i class="bi bi-chat-quote-fill"></i> Testimonials
+      </a>
+      <a href="#" class="menu-item">
+        <i class="bi bi-gear-fill"></i> Settings
+      </a>
+    </nav>
+    
+    <div style="padding: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <a href="index.html" class="menu-item" style="padding: 0; color: #ef4444; border: none;">
+        <i class="bi bi-box-arrow-left" style="color: #ef4444;"></i> Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="search-bar">
+        <i class="bi bi-search text-gray-400"></i>
+        <input type="text" placeholder="Search clients, GSTIN, or services...">
+      </div>
+      
+      <div class="admin-profile">
+        <div style="text-align: right;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--navy);">Anand Kumar Awasthi</div>
+          <div style="font-size: 12px; color: var(--text-mid);">Super Admin</div>
+        </div>
+        <div class="admin-avatar">AK</div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <div class="dashboard-content">
+      <h1 class="page-title">Overview Dashboard</h1>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="bi bi-person-lines-fill"></i></div>
+          <div class="stat-info">
+            <h3>142</h3>
+            <p>Active Clients</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="bi bi-file-earmark-text-fill"></i></div>
+          <div class="stat-info">
+            <h3>28</h3>
+            <p>Pending GST Filings</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="bi bi-calculator-fill"></i></div>
+          <div class="stat-info">
+            <h3>15</h3>
+            <p>Pending ITR Returns</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="bi bi-chat-dots-fill"></i></div>
+          <div class="stat-info">
+            <h3>8</h3>
+            <p>New Consultations</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECENT INQUIRIES TABLE -->
+      <div class="table-container">
+        <div class="table-header">
+          <h2>Recent Consultation Requests</h2>
+          <button class="btn-add"><i class="bi bi-plus-lg"></i> Add Client Manually</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Contact Info</th>
+              <th>Service Required</th>
+              <th>Date Requested</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 500;">Rajesh Kumar</td>
+              <td>+91 98765 43210</td>
+              <td>GST Registration</td>
+              <td>Today, 10:30 AM</td>
+              <td><span class="status-badge status-pending">Pending Call</span></td>
+              <td>
+                <div class="action-icons">
+                  <i class="bi bi-whatsapp" title="WhatsApp Client"></i>
+                  <i class="bi bi-pencil-square" title="Edit Details"></i>
+                  <i class="bi bi-check2-circle" title="Mark Resolved"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Priya Sharma</td>
+              <td>priya.s@techstartup.in</td>
+              <td>Pvt Ltd Incorporation</td>
+              <td>Yesterday</td>
+              <td><span class="status-badge status-active">In Progress</span></td>
+              <td>
+                <div class="action-icons">
+                  <i class="bi bi-whatsapp" title="WhatsApp Client"></i>
+                  <i class="bi bi-pencil-square" title="Edit Details"></i>
+                  <i class="bi bi-check2-circle" title="Mark Resolved"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Amit Mishra</td>
+              <td>+91 87654 32109</td>
+              <td>ITR Filing (Salaried)</td>
+              <td>Oct 22, 2025</td>
+              <td><span class="status-badge status-closed">Closed / Filed</span></td>
+              <td>
+                <div class="action-icons">
+                  <i class="bi bi-whatsapp" title="WhatsApp Client"></i>
+                  <i class="bi bi-pencil-square" title="Edit Details"></i>
+                  <i class="bi bi-archive" title="Archive"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Vikas Trading Co.</td>
+              <td>+91 99887 76655</td>
+              <td>GST Monthly Return</td>
+              <td>Oct 20, 2025</td>
+              <td><span class="status-badge status-active">In Progress</span></td>
+              <td>
+                <div class="action-icons">
+                  <i class="bi bi-whatsapp" title="WhatsApp Client"></i>
+                  <i class="bi bi-pencil-square" title="Edit Details"></i>
+                  <i class="bi bi-check2-circle" title="Mark Resolved"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
